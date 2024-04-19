@@ -37,7 +37,8 @@ docker build . --file .devcontainer/Dockerfile --tag transcribe
 Subsequently, a development container is initialised via the command
 
 ```shell
-docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app --mount type=bind,src="$(pwd)",target=/app transcribe
+docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app \
+  --mount type=bind,src="$(pwd)",target=/app transcribe
 ```
 
 Whereby:
