@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Risks &amp; Mitigation Policies &mdash; Data Architecture Hub 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/generic.css?v=6be1d329" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/figures.css?v=28bf0955" />
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script src="https://code.highcharts.com/stock/highstock.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/accessibility.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Threat Actors" href="threats.html" />
+    <link rel="prev" title="Impact Assessment" href="impact.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #343131" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Data Architecture Hub
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Platform</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../cloud.html">Cloud Platform</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architectures.html">Amazon Web Services &amp; Solution Architectures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architectures.html#delivering-assets">Delivering Assets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architectures.html#interacting">Interacting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="architectures.html#elastic-compute-cloud">Elastic Compute Cloud</a></li>
+<li class="toctree-l4"><a class="reference internal" href="architectures.html#simple-storage-service-s3">Simple Storage Service (S3)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="architectures.html#elastic-mapreduce-emr">Elastic MapReduce (EMR)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="impact.html">Impact Assessment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="impact.html#scenario">Scenario</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#project-in-focus">Project in focus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#assets-stored-within-the-cloud-platform">Assets stored within the cloud platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#design-development-and-resources-zones">Design, development, and resources zones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#plausible-disruptions">Plausible Disruptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="impact.html#considerations-contingencies-vis-a-vis-disruptions">Considerations &amp; Contingencies vis-à-vis Disruptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#data-loss-data-breach">Data Loss / Data Breach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#data-corruption">Data Corruption</a></li>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#unavailable-cloud-platform">Unavailable Cloud Platform</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Risks &amp; Mitigation Policies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-breach">Data Breach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attack-surface">Attack Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#malware-infections">Malware Infections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#insider-threats">Insider Threats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zero-day-vulnerability">Zero Day Vulnerability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-loss">Data Loss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deficient-access-controls">Deficient Access Controls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hijacking-cloud">Hijacking (Cloud)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="threats.html">Threat Actors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="threats.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="threats.html#protection">Protection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #343131" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Architecture Hub</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cloud.html">Cloud Platform</a></li>
+      <li class="breadcrumb-item active">Risks &amp; Mitigation Policies</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/cloud/risks.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <br>
+<section class="tex2jax_ignore mathjax_ignore" id="risks-mitigation-policies">
+<h1>Risks &amp; Mitigation Policies<a class="headerlink" href="#risks-mitigation-policies" title="Link to this heading"></a></h1>
+<br>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#data-breach" id="id1">Data Breach</a></p></li>
+<li><p><a class="reference internal" href="#attack-surface" id="id2">Attack Surface</a></p></li>
+<li><p><a class="reference internal" href="#malware-infections" id="id3">Malware Infections</a></p></li>
+<li><p><a class="reference internal" href="#insider-threats" id="id4">Insider Threats</a></p></li>
+<li><p><a class="reference internal" href="#zero-day-vulnerability" id="id5">Zero Day Vulnerability</a></p></li>
+<li><p><a class="reference internal" href="#data-loss" id="id6">Data Loss</a></p></li>
+<li><p><a class="reference internal" href="#deficient-access-controls" id="id7">Deficient Access Controls</a></p></li>
+<li><p><a class="reference internal" href="#hijacking-cloud" id="id8">Hijacking (Cloud)</a></p></li>
+</ul>
+</nav>
+<br>
+<section id="data-breach">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Data Breach</a><a class="headerlink" href="#data-breach" title="Link to this heading"></a></h2>
+<p>An unauthorised data, or information, access.</p>
+<dl>
+<dt>Risk</dt><dd>Threaten cloud systems via corruption of storage systems and their content.</dd>
+<dt>Mitigation</dt><dd>Mandatory two-factor authentication via FIDO (Fast Identity Online) Keys.</dd>
+</dl>
+<br>
+<br>
+</section>
+<section id="attack-surface">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Attack Surface</a><a class="headerlink" href="#attack-surface" title="Link to this heading"></a></h2>
+<p>The known and unknown routes via which an entities cloud asset can be infiltrated.</p>
+<dl>
+    <dt>Risk</dt><dd>The corruption of cloud assets and the underlying systems, unauthorised access and distribution of 
+data, reputation damage, financial loss. Endangerment of lives, if personal or sensitive data is present.</dd>
+    <dt>Mitigation</dt>
+    <dd>    
+        Data [Classify Data Sets: Open, Sensitive, Personal.]    
+        <ul><li>Do not store sensitive or personal data within the team's cloud account.</li><li>Encrypt all data sets; 
+Amazon S3 (Simple Storage Service) <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/specifying-s3-encryption.html">encrypts by default</a>.</li><li>Authorise and withdraw access to data via IAM (Identity &amp; Management) roles.</li><li>Delete redundant data assets.</li></ul>    
+        Compute Services
+        <ul style="font-family&%2358;Calibri, Arial, Helvetica, sans-serif;background-color&%2358;rgb(255, 255, 255);"><li>Authorise and withdraw access to compute services via IAM (Identity &amp; Management) roles, and trust policies thereof.</li><li>Delete redundant compute assets.</li></ul>    
+        Architectures
+        <ul><li>Defensive, limited privileges, compute solutions architectures; refer to the architectures pages.</li></ul>    
+    </dd>
+</dl>
+<br>
+<br>
+</section>
+<section id="malware-infections">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Malware Infections</a><a class="headerlink" href="#malware-infections" title="Link to this heading"></a></h2>
+<p>Software that enables the unauthorised installer to take control of a system by disrupting it or causing strategic damage.</p>
+<dl>
+    <dt>Risk</dt>
+    <dd>Industrial Espionage<br>
+    <ul><li>The theft of confidential, sensitive, etc., data or information.</li>
+        <li>The theft of intellectual property, processes, ideas, techniques, etc.</li></ul>
+    </dd>
+    <dt>Mitigation [<a href="https://www.ncsc.gov.uk/pdfs/guidance/mitigating-malware-and-ransomware-attacks.pdf" target="_blank"
+>Mitigating malware 
+and ransomware attacks</a>]</dt>
+    <dd>
+        Cloud
+        <ul><li>Enforce multi-factor authentication; the default of GitHub &amp; Amazon Web Services.</li>
+            <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html" target="_blank">Encrypt all data 
+sets.</a></li>
+            <li>Backup data sets; <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/backup-for-s3.html" target="_blank"
+>Amazon Web Services Backup for Amazon S3 (Simple Storage Service)</a>.</li>
+            <li>Limit access to cloud assets via the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html" target="_blank">inbound rules of security groups</a>.</li>
+            <li>Authorise and withdraw access to assets via IAM (Identity &amp; Management) roles.</li>
+            <li>Restricted data delivery: Programmatic data delivery via data science team members only.</li>
+            <li>Termination of instances immediately after use.</li><li>Prepare an incident contingency.</li></ul>
+        Client
+        <ul><li>Interaction with cloud services via virtual private networks.</li></ul>
+    </dd>
+</dl>
+<br>
+<br>
+</section>
+<section id="insider-threats">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Insider Threats</a><a class="headerlink" href="#insider-threats" title="Link to this heading"></a></h2>
+<p>Threats due to employees not adhering to security rules.</p>
+<dl>
+    <dt>Risk</dt><dd>Infiltration risks, and all the damages thereof.</dd>
+    <dt>Mitigation</dt>
+    <dd>
+        <ul>
+        <li>Always-on virtual private network.</li>
+        <li>Using compute services via infrastructure-as-code templates that always feature
+            <ul>
+            <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html" target="_blank">VPC</a> 
+(Virtual Private Cloud)</li>
+            <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html" target="_blank">Subnet</a></li>
+            <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html" target="_blank">Security Groups</a>: 
+For controlling inbound &amp; outbound rules</li></ul>
+        </li>
+        </ul>
+    </dd>
+</dl>
+<br>
+<br>
+</section>
+<section id="zero-day-vulnerability">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Zero Day Vulnerability</a><a class="headerlink" href="#zero-day-vulnerability" title="Link to this heading"></a></h2>
+<p>An unknown software security flaw; the developers are unaware of its existence.</p>
+<dl>
+    <dt>Risk</dt><dd><ul><li>Zero-day exploits.</li><li>Zero-day attacks.</li></ul></dd>
+    <dt>Mitigation</dt>
+    <dd>Local<ul><li>Continuous, automatic, software updates</li><li>Limited pool of applications.</li><li>Firewall</li><li>Network interactions via virtual private network only.</li></ul><p>Cloud</p><p><ul><li>Always use the latest compute services &amp; software.</li></ul></dd>
+</dl>
+<br>
+<br>
+</section>
+<section id="data-loss">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Data Loss</a><a class="headerlink" href="#data-loss" title="Link to this heading"></a></h2>
+<p>The loss of data due to a natural disaster, malfunction, etc.</p>
+<dl>
+    <dt>Risk</dt><dd>The loss of all data intelligence, e.g., engineered features, developed models, model artefacts, 
+exploratory &amp; trend analysis, etc.</dd>
+    <dt>Mitigation</dt><dd>
+    <ul>
+    <li>Backup data sets: <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/backup-for-s3.html" 
+target="_blank">Amazon Web Services Backup for Amazon S3 (Simple Storage Service)</a></li>
+    <li>Programmatic production of all data intelligence, via version controlled team programs; hence the wherewithal to 
+reproduce all lost items.  This is a mandatory team practice.</li>
+    </ul>
+</dd>
+</dl>
+<br>
+<br>
+</section>
+<section id="deficient-access-controls">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Deficient Access Controls</a><a class="headerlink" href="#deficient-access-controls" title="Link to this heading"></a></h2>
+<p>Deficient access controls to cloud, and complementary, assets.</p>
+<dl>
+    <dt>Risk</dt>
+    <dd><ul><li>An unnecessarily wider attack surface via which threat actors can conduct malicious activities.</li>
+        <li>Financial loss, e.g, by using unaffordable products that were not intended for use by the organisation/team.</li></ul></dd>
+    <dt>Mitigation</dt>
+    <dd>
+        Amazon Web Services (AWS)
+        <ul>
+        <li>Programmatic access to Amazon Web Services products via limited privileges roles &amp; trust policies. [Automatic temporary credentials via AWS Command Line Interface Single Sign On]</li>
+        <li><span style="background-color&%2358;rgb(255, 255, 255);display&%2358;inline !important;">Limited, zero, privileges by default.</span><br></li>
+        <li>The continuous development and availability of launch templates, with security settings and limited assets privileges, for launching computing products.</li>
+        <li>The team's cloud leads must use multi-factor authentication to access AWS online.  [Multi-factor 
+authentication by default.]</li>
+        </ul>
+        GitHub
+        <ul><li>Mandatory multi-factor authentication.</li><li>SSH (Secure Shell) command line interactions.</li></ul>
+    </dd>
+</dl>
+<br>
+<br>
+</section>
+<section id="hijacking-cloud">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Hijacking (Cloud)</a><a class="headerlink" href="#hijacking-cloud" title="Link to this heading"></a></h2>
+<p>The take-over of a cloud account by a threat actor.</p>
+<dl>
+    <dt>Risk</dt><dd>Theft and disruption, hence reputation and financial losses.</dd>
+    <dt>Mitigation</dt><dd>Protect the infiltration route, e.g., interact with cloud services via virtual private networks 
+only.</dd>
+</dl>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="impact.html" class="btn btn-neutral float-left" title="Impact Assessment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="threats.html" class="btn btn-neutral float-right" title="Threat Actors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, ....</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

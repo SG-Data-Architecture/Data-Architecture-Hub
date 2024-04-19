@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search &mdash; Data Architecture Hub 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/generic.css?v=6be1d329" />
+      <link rel="stylesheet" type="text/css" href="_static/css/figures.css?v=28bf0955" />
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" />
+
+  
+    
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=36754332"></script>
+        <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script src="https://code.highcharts.com/stock/highstock.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/accessibility.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="#" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #343131" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Data Architecture Hub
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">Cloud Platform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloud/architectures.html">Amazon Web Services &amp; Solution Architectures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloud/architectures.html#delivering-assets">Delivering Assets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud/architectures.html#interacting">Interacting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloud/architectures.html#elastic-compute-cloud">Elastic Compute Cloud</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud/architectures.html#simple-storage-service-s3">Simple Storage Service (S3)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud/architectures.html#elastic-mapreduce-emr">Elastic MapReduce (EMR)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cloud/impact.html">Impact Assessment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloud/impact.html#scenario">Scenario</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloud/impact.html#project-in-focus">Project in focus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud/impact.html#assets-stored-within-the-cloud-platform">Assets stored within the cloud platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud/impact.html#design-development-and-resources-zones">Design, development, and resources zones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud/impact.html#plausible-disruptions">Plausible Disruptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloud/impact.html#considerations-contingencies-vis-a-vis-disruptions">Considerations &amp; Contingencies vis-à-vis Disruptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloud/impact.html#data-loss-data-breach">Data Loss / Data Breach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud/impact.html#data-corruption">Data Corruption</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloud/impact.html#unavailable-cloud-platform">Unavailable Cloud Platform</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cloud/risks.html">Risks &amp; Mitigation Policies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloud/risks.html#data-breach">Data Breach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud/risks.html#attack-surface">Attack Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud/risks.html#malware-infections">Malware Infections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud/risks.html#insider-threats">Insider Threats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud/risks.html#zero-day-vulnerability">Zero Day Vulnerability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud/risks.html#data-loss">Data Loss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud/risks.html#deficient-access-controls">Deficient Access Controls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud/risks.html#hijacking-cloud">Hijacking (Cloud)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cloud/threats.html">Threat Actors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloud/threats.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloud/threats.html#protection">Protection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #343131" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Data Architecture Hub</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Search</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <noscript>
+  <div id="fallback" class="admonition warning">
+    <p class="last">
+      Please activate JavaScript to enable the search functionality.
+    </p>
+  </div>
+  </noscript>
+
+  
+  <div id="search-results">
+  
+  </div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, ....</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <script>
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+  
+  <script id="searchindexloader"></script>
+   
+
+
+</body>
+</html>
