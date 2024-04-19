@@ -1,0 +1,106 @@
+/* Lists https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors */
+li {
+    margin-top:1px;
+    margin-bottom:1px;
+    padding-top: 1px;
+    padding-bottom:1px;
+}
+
+ul {
+    font-size: 14.5px;
+}
+
+ul.special {
+    margin-top:0px;
+    margin-bottom:1px;
+    padding-top: 0px;
+    padding-bottom:1px;
+    margin-left: 15px;
+}
+
+.bd-main .bd-content .bd-article-container .wy-nav-content {
+    max-width: 160em;
+}
+
+
+/* Caption */
+.caption-text {
+    font-family: sans-serif;
+}
+
+
+/* Font */
+h1 {
+  display: block;
+  font-size: 1.63em;
+  font-variant: small-caps;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+h2 {
+  display: block;
+  font-size: 1.27em;
+  font-family: 'Segoe UI';
+  text-transform: uppercase;
+  opacity: 0.90;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 900;
+}
+
+h3 {
+  display: block;
+  font-size: 1em;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+h4 {
+  display: block;
+  font-size: .83em;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+h5 {
+  display: block;
+  font-size: .67em;
+  margin-top: 2.33em;
+  margin-bottom: 2.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+
+/* Image */
+img {
+  margin-left: 65px
+}
+
+
+/* Table */
+table {
+    border-collapse: collapse;
+    border-spacing: 5px;
+    border: 0;
+    margin-left: 35px
+}
+
+td,
+th {
+    padding: 5px;
+}
+
