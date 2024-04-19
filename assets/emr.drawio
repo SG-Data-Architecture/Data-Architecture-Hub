@@ -1,0 +1,66 @@
+<mxfile modified="2024-03-15T13:47:33.522Z" host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="otU-TYI0M2uipwZgRJK1" version="22.1.2" type="device">
+  <diagram id="rutRbI7PMlljdgDySNPT" name="EMR">
+    <mxGraphModel dx="1098" dy="699" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gX3J7jnckXp5VPm_-A3O-8" value="Availability zone" style="sketch=1;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=13;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_availability_zone;strokeColor=#545B64;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#545B64;dashed=1;rotation=0;fontFamily=Roboto;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+          <mxGeometry x="230" y="213" width="450" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="gX3J7jnckXp5VPm_-A3O-1" value="VPC" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc2;strokeColor=#8C4FFF;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#AAB7B8;dashed=0;rotation=0;shadow=0;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+          <mxGeometry x="402" y="251" width="248" height="259" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;font color=&quot;#7aa116&quot;&gt;Public subnet&lt;/font&gt;" link="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html" tooltip="Subnet: &quot; ... a range of IP [internet protocol] addresses &quot; within a virtual private cloud." id="gX3J7jnckXp5VPm_-A3O-3">
+          <mxCell style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_security_group;grStroke=0;strokeColor=#7AA116;fillColor=#FFFFFF;verticalAlign=top;align=left;spacingLeft=30;fontColor=#248814;dashed=0;rotation=0;shadow=1;textShadow=1;" parent="gX3J7jnckXp5VPm_-A3O-1" vertex="1">
+            <mxGeometry x="45" y="48" width="174" height="182" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;b style=&quot;font-size: 10px;&quot;&gt;SECURITY GROUPS&lt;/b&gt;&lt;/font&gt;" tooltip="Security Groups: &quot;A security group controls the traffic that is allowed to reach and leave the resources that it is associated with.&quot;" link="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html" id="gX3J7jnckXp5VPm_-A3O-7">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;rotation=0;dashed=1;dashPattern=8 8;strokeWidth=0.5;fontFamily=Roboto;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;fontSize=10;" parent="gX3J7jnckXp5VPm_-A3O-3" vertex="1">
+            <mxGeometry x="36" y="42" width="110" height="110" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="EMR" link="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html" tooltip="Amazon Elastic MapReduce (EMR)" id="gX3J7jnckXp5VPm_-A3O-4">
+          <mxCell style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.emr;fontFamily=Roboto;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto;rotation=0;" parent="gX3J7jnckXp5VPm_-A3O-3" vertex="1">
+            <mxGeometry x="61" y="63" width="60" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="gX3J7jnckXp5VPm_-A3O-2" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.internet_gateway;rotation=0;" parent="gX3J7jnckXp5VPm_-A3O-1" vertex="1">
+          <mxGeometry x="-20" y="130.5" width="39" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="gX3J7jnckXp5VPm_-A3O-9" value="Region" style="html=1;verticalLabelPosition=middle;align=left;labelBackgroundColor=#ffffff;verticalAlign=middle;strokeWidth=2;strokeColor=#147EBA;shadow=0;dashed=0;shape=mxgraph.ios7.icons.flag;fontFamily=Roboto;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto;fontSize=13;labelPosition=right;spacingRight=0;spacingLeft=5;fontColor=#147EBA;" parent="1" vertex="1">
+          <mxGeometry x="80" y="199" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="gX3J7jnckXp5VPm_-A3O-10" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeColor=#147EBA;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="183" as="sourcePoint" />
+            <mxPoint x="690" y="183" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gX3J7jnckXp5VPm_-A3O-12" value="EMR &lt;br&gt;Service" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.emr;fillColor=#000000;gradientColor=none;rotation=0;opacity=80;" parent="1" vertex="1">
+          <mxGeometry x="277.25" y="318" width="33.75" height="40.5" as="geometry" />
+        </mxCell>
+        <UserObject label="S3 Bucket" link="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html" tooltip="An Amazon S3 (Simple Storage Service) bucket." id="gX3J7jnckXp5VPm_-A3O-14">
+          <mxCell style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#000000;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;opacity=80;rotation=0;" parent="1" vertex="1">
+            <mxGeometry x="274.625" y="441" width="39" height="39" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="gX3J7jnckXp5VPm_-A3O-20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.021;entryY=0.546;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" parent="1" source="gX3J7jnckXp5VPm_-A3O-12" target="gX3J7jnckXp5VPm_-A3O-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gX3J7jnckXp5VPm_-A3O-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" parent="1" target="gX3J7jnckXp5VPm_-A3O-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="383" y="406" as="sourcePoint" />
+            <mxPoint x="234.625" y="504.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gX3J7jnckXp5VPm_-A3O-22" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeColor=#147EBA;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="81" y="566" as="sourcePoint" />
+            <mxPoint x="700" y="566" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
