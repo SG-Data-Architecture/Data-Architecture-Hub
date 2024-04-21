@@ -15,7 +15,7 @@ mkdir docs && cd docs && sphinx-quickstart
 Build the <abbr title="HyperText Markup Language">HTML</abbr> pages via:
 
 ```bash
-sphinx-build -E -b html docs/source doc/build/html
+sphinx-build -E -b html docs/source docs/build/html
 ```
 
 <br>
