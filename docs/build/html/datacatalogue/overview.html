@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon Web Services &amp; Solution Architectures &mdash; Data Architecture Hub 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/generic.css?v=6be1d329" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/figures.css?v=28bf0955" />
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script src="https://code.highcharts.com/stock/highstock.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/accessibility.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+        <script src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Impact Assessment" href="impact.html" />
+    <link rel="prev" title="Cloud Platform" href="../cloud.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #343131" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Data Architecture Hub
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Cloud Platform</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../cloud.html">Cloud Platform</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Amazon Web Services &amp; Solution Architectures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#delivering-assets">Delivering Assets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interacting">Interacting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#elastic-compute-cloud">Elastic Compute Cloud</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simple-storage-service-s3">Simple Storage Service (S3)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#elastic-mapreduce-emr">Elastic MapReduce (EMR)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="impact.html">Impact Assessment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="impact.html#scenario">Scenario</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#project-in-focus">Project in focus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#assets-stored-within-the-cloud-platform">Assets stored within the cloud platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#design-development-and-resources-zones">Design, development, and resources zones</a></li>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#plausible-disruptions">Plausible Disruptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="impact.html#considerations-contingencies-vis-a-vis-disruptions">Considerations &amp; Contingencies vis-à-vis Disruptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#data-loss-data-breach">Data Loss / Data Breach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#data-corruption">Data Corruption</a></li>
+<li class="toctree-l4"><a class="reference internal" href="impact.html#unavailable-cloud-platform">Unavailable Cloud Platform</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="risks.html">Risks &amp; Mitigation Policies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="risks.html#data-breach">Data Breach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="risks.html#attack-surface">Attack Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="risks.html#malware-infections">Malware Infections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="risks.html#insider-threats">Insider Threats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="risks.html#zero-day-vulnerability">Zero Day Vulnerability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="risks.html#data-loss">Data Loss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="risks.html#deficient-access-controls">Deficient Access Controls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="risks.html#hijacking-cloud">Hijacking (Cloud)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="threats.html">Threat Actors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="threats.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="threats.html#protection">Protection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #343131" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data Architecture Hub</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../cloud.html">Cloud Platform</a></li>
+      <li class="breadcrumb-item active">Amazon Web Services &amp; Solution Architectures</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/cloud/architectures.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <br>
+<section class="tex2jax_ignore mathjax_ignore" id="amazon-web-services-solution-architectures">
+<h1>Amazon Web Services &amp; Solution Architectures<a class="headerlink" href="#amazon-web-services-solution-architectures" title="Link to this heading"></a></h1>
+<br>
+<p>Hover over an illustration’s symbols for more details; some have links to further details.  Images only have captions.  Over
+time, more Amazon Web Services (AWS) details will be added.</p>
+<br>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#delivering-assets" id="id1">Delivering Assets</a></p></li>
+<li><p><a class="reference internal" href="#interacting" id="id2">Interacting</a></p>
+<ul>
+<li><p><a class="reference internal" href="#elastic-compute-cloud" id="id3">Elastic Compute Cloud</a></p>
+<ul>
+<li><p><a class="reference internal" href="#with-a-public-subnet" id="id4">With a public subnet</a></p></li>
+<li><p><a class="reference internal" href="#with-a-private-subnet" id="id5">With a private subnet</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#simple-storage-service-s3" id="id6">Simple Storage Service (S3)</a></p></li>
+<li><p><a class="reference internal" href="#elastic-mapreduce-emr" id="id7">Elastic MapReduce (EMR)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<br>
+<section id="delivering-assets">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Delivering Assets</a><a class="headerlink" href="#delivering-assets" title="Link to this heading"></a></h2>
+<iframe style="overflow:hidden; width:100%; height:330px; border:none; margin-left:65px" 
+        src="../../../../assets/beforehand.html"></iframe>
+<figure>
+<figcaption>For more details hover over the icons; a few icons have links to more details.  Assets, e.g., 
+container images, will be delivered to Amazon Web Services (AWS) via a version controlled route, i.e., via GitHub. [<a 
+href="https://github.com/enqueter/pollutants/actions/runs/8443640990/job/23127661393" target="_blank">CodeQL</a> Example, <a 
+href="https://github.com/enqueter/pollutants/actions/runs/8443640949" target="_blank">Actions</a>/<a 
+href="https://github.com/enqueter/pollutants/actions/runs/8443640949/workflow" target="_blank">Actions Code</a> 
+Example] 
+</figcaption>
+</figure>
+<br>
+<br>
+</section>
+<section id="interacting">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Interacting</a><a class="headerlink" href="#interacting" title="Link to this heading"></a></h2>
+<section id="elastic-compute-cloud">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Elastic Compute Cloud</a><a class="headerlink" href="#elastic-compute-cloud" title="Link to this heading"></a></h3>
+<br>
+<section id="with-a-public-subnet">
+<h4><a class="toc-backref" href="#id4" role="doc-backlink">With a public subnet</a><a class="headerlink" href="#with-a-public-subnet" title="Link to this heading"></a></h4>
+<iframe style="overflow:hidden; width:100%; height:430px; border:none; margin-left:65px"
+        src="../../../../assets/ec2.html"></iframe>
+<figure>
+<figcaption>In general, containers will be run via the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html" target="_blank">Fargate</a> option of Amazon's <abbr title="Elastic Container Service">ECS</abbr>. Sometimes, containers will be tested via an EC2 (Elastic Cloud Compute) using a set-up such as this; launched via a launch template.  Within each team member's machine AWS CLI (Command Line Interface) will be configured to use the <a href="https://docs.aws.amazon.com/cli/latest/userguide/sso-configure-profile-token.html#sso-configure-profile-token-auto-sso" target="_blank">AWS Identity & Access Management's identity centre for authentication.
+</a></figcaption>
+</figure>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+A launch template example: redacted.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;EbsOptimized&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;IamInstanceProfile&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Arn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{amazon.resource.name}&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;BlockDeviceMappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;DeviceName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/dev/xvda&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Ebs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;Encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;DeleteOnTermination&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;Iops&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;VolumeSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;VolumeType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gp3&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;Throughput&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;NetworkInterfaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;AssociatePublicIpAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;DeleteOnTermination&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;DeviceIndex&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Groups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;{security.group.identifier}&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;InterfaceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;interface&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Ipv6Addresses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;SubnetId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{subnet.identifier}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;NetworkCardIndex&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;ImageId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{amazon.machine.image.identifier}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;InstanceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{instance.type.code}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;KeyName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{key.pair.name}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Monitoring&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Placement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;AvailabilityZone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{availability.zone}&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;GroupName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Tenancy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;DisableApiTermination&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;InstanceInitiatedShutdownBehavior&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;terminate&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;TagSpecifications&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;ResourceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;instance&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;Key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cost&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;Value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;free tier&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;CreditSpecification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;CpuCredits&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;CapacityReservationSpecification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;CapacityReservationPreference&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;open&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;HibernationOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Configured&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;MetadataOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;HttpTokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;required&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;HttpPutResponseHopLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;HttpEndpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;enabled&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;HttpProtocolIpv6&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;disabled&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;InstanceMetadataTags&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;disabled&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;EnclaveOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;PrivateDnsNameOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;HostnameType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ip-name&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;EnableResourceNameDnsARecord&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;EnableResourceNameDnsAAAARecord&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;MaintenanceOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;AutoRecovery&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;DisableApiStop&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details><br>
+<br>
+</section>
+<section id="with-a-private-subnet">
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">With a private subnet</a><a class="headerlink" href="#with-a-private-subnet" title="Link to this heading"></a></h4>
+<iframe style="overflow:hidden; width:100%; height:485px; border:none; margin-left:65px" 
+        src="../../../../assets/endpoint-connect.html"></iframe>
+<figure>
+<figcaption>Similar to the previous illustration, using a private subnet requires a slightly different design.  Click on the 
+Private Subnet symbol link to read more.  Within each team member's machine AWS CLI (Command Line Interface) will be configured to use <a 
+href="https://docs.aws.amazon.com/cli/latest/userguide/sso-configure-profile-token.html#sso-configure-profile-token-auto-sso" title="Amazon Web Services (AWS) Identity & Access Management (IAM) Identity Centre (IC)">AWS IAM IC</a> for authentication.</figcaption>
+</figure>
+<br>
+<br>
+<br>
+</section>
+</section>
+<section id="simple-storage-service-s3">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Simple Storage Service (S3)</a><a class="headerlink" href="#simple-storage-service-s3" title="Link to this heading"></a></h3>
+<iframe style="overflow:hidden; width:100%; height:430px; border:none;" src="../../../../assets/endpoint-interface.html"></iframe>
+<figure>
+<figcaption>Interacting with Amazon S3 (Simple Storage Service) via <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html" target="_blank">AWS CLI (Command Line Interface)</a> and a private subnet. Within each team member's machine AWS CLI will be configured to use <a href="https://docs.aws.amazon.com/cli/latest/userguide/sso-configure-profile-token.html#sso-configure-profile-token-auto-sso" title="Amazon Web Services (AWS) Identity & Access Management (IAM) Identity Centre (IC)">AWS IAM IC</a> for authentication.</figcaption>
+</figure>
+<br>
+<br>
+<br>
+</section>
+<section id="elastic-mapreduce-emr">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Elastic MapReduce (EMR)</a><a class="headerlink" href="#elastic-mapreduce-emr" title="Link to this heading"></a></h3>
+<iframe
+style="overflow:hidden; width:100%; height:375px; border:none; margin-left:65px"
+src="../../../../assets/emr.html"></iframe>
+<figure>
+<figcaption>An illustration of an EMR (Elastic MapReduce) cluster set-up.  The set-up includes virtual private cloud 
+settings, security groups, auto-termination settings, and much more.  The team's launch templates repository, i.e., 
+infrastructure code templates repository, will be visible during the upcoming weeks.
+</figcaption>
+</figure>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../cloud.html" class="btn btn-neutral float-left" title="Cloud Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="impact.html" class="btn btn-neutral float-right" title="Impact Assessment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, ....</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
