@@ -1,6 +1,6 @@
 <br>
 
-A slice of [practice](https://github.com/thereferences/practice)
+A wiki/documentation site containing Data Architecture projects in-flight
 
 <br>
 
