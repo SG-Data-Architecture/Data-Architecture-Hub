@@ -2,7 +2,7 @@
 
 # Introduction
 
-These pages continuously outline the team's operating practices.
+These pages detail the various projects the Data Architecture team are working on in the cloud, including details on how security is enforced.
 
 <br>
 <br>
